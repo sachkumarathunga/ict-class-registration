@@ -23,15 +23,15 @@
 
         body {
             min-height: 100vh;
+            margin: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            overflow: hidden;
+            justify-content: flex-start;
+            padding: 1.5rem 1rem;
             background: linear-gradient(135deg, #9e9bff 0%, #79a8ff 25%, #ff9edb 60%, #ffc0cf 100%);
             background-size: 400% 400%;
             animation: gradientShift 12s ease infinite;
-            transition: background 1s ease;
         }
 
         @keyframes gradientShift {
@@ -48,84 +48,66 @@
             }
         }
 
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.75;
-            z-index: 0;
+        .page-header {
+            text-align: center;
+            color: #222;
+            margin-bottom: 1.5rem;
+            z-index: 2;
+            position: relative;
         }
 
-        .bubble1 {
-            width: 450px;
-            height: 450px;
-            top: -120px;
-            left: -120px;
-            background: radial-gradient(circle at 30% 30%, #ffffff 0%, #b0c4ff 60%, #79a8ff 100%);
+        .page-header .main-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
         }
 
-        .bubble2 {
-            width: 380px;
-            height: 380px;
-            top: -80px;
-            right: -100px;
-            background: radial-gradient(circle at 70% 30%, #ffffff 0%, #ffc9fb 60%, #ff9edb 100%);
-        }
-
-        .bubble3 {
-            width: 500px;
-            height: 500px;
-            bottom: -150px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: radial-gradient(circle at 50% 50%, #ffffff 0%, #a9ffd0 60%, #65ffbf 100%);
+        .page-header .subtitle {
+            font-size: 1rem;
+            color: #444;
         }
 
         .container {
-            position: relative;
-            z-index: 2;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            padding: 1.5rem;
+            border-radius: 20px;
             width: 100%;
             max-width: 480px;
-            padding: 2.5rem 3rem;
-            border-radius: 26px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
-            color: #000;
             text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 700;
-            font-size: 1.9rem;
+            font-size: 1.6rem;
+            margin-bottom: 1.8rem;
+            color: #000;
         }
 
         .form-group {
-            margin-bottom: 1.35rem;
+            margin-bottom: 1.2rem;
         }
 
         label {
             display: block;
+            margin-bottom: 0.4rem;
             color: var(--text-dark);
-            margin-bottom: 0.45rem;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         input,
         select {
             width: 100%;
-            padding: 0.7rem 0.9rem;
-            border: none;
+            padding: 0.65rem 0.9rem;
             border-radius: 12px;
+            border: none;
             background: rgba(255, 255, 255, 0.95);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         input::placeholder {
-            color: #666;
+            color: #777;
         }
 
         button {
@@ -135,11 +117,11 @@
             border-radius: 12px;
             margin-top: 1.5rem;
             background: var(--accent);
-            color: #fff;
-            font-size: 1rem;
+            color: white;
             font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.2s ease;
             box-shadow: 0 8px 18px rgba(255, 46, 135, 0.45);
         }
 
@@ -150,22 +132,29 @@
 
         @media (max-width: 520px) {
             .container {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem;
             }
 
-            h1 {
-                font-size: 1.6rem;
-                margin-bottom: 1.5rem;
+            .page-header .main-title {
+                font-size: 1.5rem;
+            }
+
+            .page-header .subtitle {
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="bubble bubble1"></div>
-    <div class="bubble bubble2"></div>
-    <div class="bubble bubble3"></div>
 
+    <!-- Header -->
+    <div class="page-header">
+        <h1 class="main-title">Welcome to ICT Class Registration</h1>
+        <p class="subtitle">Empowering the next generation through technology education.</p>
+    </div>
+
+    <!-- Form -->
     <div class="container">
         <h1>ICT Class Registration</h1>
         <form id="registrationForm">
